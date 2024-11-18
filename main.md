@@ -362,3 +362,42 @@ int main() {
 }
 
 ```
+
+# same question but print along with index ( make sure you set datatype is compatible )
+
+```c
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+
+int firstUniqueOccurrence(char str[], int N){
+    int count[256] = {0};
+
+    for(int i=0; i<N; i++){
+        count[str[i]]++;
+    }
+    
+    for(int i=0; i<N; i++){
+        if (count[str[i]] == 1){
+            return i;
+        }
+    }
+    return -1;
+}
+
+int main() {
+    char str[100];
+    scanf("%s", str);
+    int len = strlen(str);
+    
+    int index = firstUniqueOccurrence(str, len);
+    
+    if(index != -1){
+        printf("%c %d", str[index], index);
+    }else{
+        printf("No more chars");
+    }
+    return 0;
+}
+
+```
