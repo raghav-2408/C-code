@@ -148,4 +148,38 @@ int main() {
 }
 ```
 
+# check all A's comes before B's
+
+```c
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+bool checkA(char* str, int len){
+    int j = 0;
+    bool flag = false;
+    char foundB;
+    for(int i=0; i<len; i++){
+        if (str[i] == 'b' || str[i] == 'B'){
+            foundB = true;
+        }
+        if((str[i] == 'A' && foundB) || (str[i] == 'a' && foundB)){
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    char str[] = "abb";
+    int N = strlen(str);
+    if(checkA(str, N)){
+        printf("true");
+    }else{
+        printf("false");
+    }
+    return 0;
+}
+```
 
