@@ -234,3 +234,52 @@ int main() {
     return 0;
 }
 ```
+
+
+
+# Unique occurrences or not
+
+```c
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+bool uniqueOccurrences(int arr[], int N){
+    int count[100] = {0};
+    int freq[100] = {0};
+    
+    for(int i=0; i<N; i++){
+        count[arr[i]]++;
+    }
+    
+    for(int i=0; i<100; i++){
+        if (count[i] > 0){
+            // if that frequence has already been seen.
+            if(freq[count[i]] > 0){
+                return false;
+            }
+            freq[count[i]]=1;
+        }
+    }
+    return true;
+}
+
+int main() {
+    int N;
+    scanf("%d", &N);
+    int arr[N];
+    
+    for(int i=0; i<N; i++){
+        scanf("%d", &arr[i]);
+    }
+    
+    if(uniqueOccurrences(arr, N)){
+        printf("true");
+    }else{
+        printf("false");
+    }
+    return 0;
+}
+
+```
