@@ -119,3 +119,38 @@ int main() {
 }
 
 ```
+
+# Palindrone and its lenght, ASCII
+
+```c
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100], rev[100];
+    
+    scanf("%s", str);
+    int N1 = strlen(str);
+    
+    for(int i=0; i<N1; i++){
+        rev[i] = str[N1 - i -1];
+    }
+    
+    int isPal = 1;
+    
+    for(int i=0; i<N1; i++){
+        if (str[i] != rev[i]){
+            isPal = 0;
+            break;
+        }
+    }
+    
+    if (isPal){
+        printf("%d", N1);
+    }else{
+        printf("%d", str[0]);
+    }
+    return 0;
+}
+```
