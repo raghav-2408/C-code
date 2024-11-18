@@ -182,3 +182,55 @@ int main() {
     return 0;
 }
 ```
+
+# Remove duplicated from the unsorted array
+
+```c
+#include <stdio.h>
+
+void bubbleSort(int arr[], int N) {
+    for (int i = 0; i < N - 1; i++) {
+        for (int j = 0; j < N - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // Swap arr[j] and arr[j+1]
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    int arr[100], N, j = 0;
+
+    // Read the number of elements
+    printf("Enter the number of elements: ");
+    scanf("%d", &N);
+    
+    // Read elements of the array
+    printf("Enter the elements of the array:\n");
+    for(int i = 0; i < N; i++) {
+        scanf("%d", &arr[i]);
+    }
+    
+    // Step 1: Sort the array using bubble sort
+    bubbleSort(arr, N);
+
+    // Step 2: Remove duplicates from the sorted array
+    for (int i = 1; i < N; i++) {
+        if (arr[j] != arr[i]) {
+            j++;
+            arr[j] = arr[i]; // Move the next unique element forward
+        }
+    }
+
+    // Print the array with unique elements
+    printf("Array after removing duplicates:\n");
+    for (int i = 0; i <= j; i++) {
+        printf("%d ", arr[i]);
+    }
+    
+    return 0;
+}
+```
