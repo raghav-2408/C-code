@@ -305,3 +305,42 @@ int main() {
 }
 
 ```
+
+# first unique occurring character :
+
+```c
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+
+char firstUniqueOccurrence(char str[], int N){
+    int count[256] = {0};
+
+    for(int i=0; i<N; i++){
+        count[str[i]]++;
+    }
+    
+    for(int i=0; i<N; i++){
+        if (count[str[i]] == 1){
+            return str[i];
+        }
+    }
+    return '\0';
+}
+
+int main() {
+    char str[100];
+    scanf("%s", str);
+    int len = strlen(str);
+    
+    char res = firstUniqueOccurrence(str, len);
+    
+    if(res != '\0'){
+        printf("%c", res);
+    }else{
+        printf("No more chars");
+    }
+    return 0;
+}
+
+```
