@@ -50,3 +50,59 @@ int main() {
     return 0;
 }
 ```
+
+
+# string conversion  (ctype.h)
+
+```c
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char str[100] = "HellO";
+    
+    int i=0;
+    while (str[i] != '\0'){
+        str[i] = tolower(str[i]);
+        i++;
+    }
+    printf("%s", str);
+    return 0;
+}
+```
+
+
+```c
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char str[100] = "HellO";
+    int ch;
+    scanf("%d", &ch);
+    int i = 0;
+    
+    switch(ch){
+        case 1 : while (str[i] != '\0'){
+                    str[i] = tolower(str[i]);
+                    i++;
+                }
+                break;
+        case 2 : 
+                while (str[i] != '\0'){
+                    str[i] = toupper(str[i]);
+                    i++;
+                }
+                break;
+        default : printf("Invalid choice");
+                return 1;
+        }
+    
+    printf("%s", str);
+    return 0;
+}
+```
+
+
+
