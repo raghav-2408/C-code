@@ -157,9 +157,7 @@ int main() {
 #include <stdbool.h>
 
 bool checkA(char* str, int len){
-    int j = 0;
-    bool flag = false;
-    char foundB;
+    bool foundB = false;
     for(int i=0; i<len; i++){
         if (str[i] == 'b' || str[i] == 'B'){
             foundB = true;
@@ -180,6 +178,26 @@ int main() {
         printf("false");
     }
     return 0;
+}
+```
+
+# function part 
+
+```c
+#include <string.h>
+
+bool checkString(char* s) {
+    bool foundB = false;
+
+    for(int i=0; i<strlen(s); i++){
+        if(s[i] == 'B' || s[i] == 'b'){
+            foundB = true;
+        }
+        if((s[i] == 'A' && foundB) || (s[i] == 'a' && foundB)){
+            return false;
+        }
+    }
+    return true;
 }
 ```
 
