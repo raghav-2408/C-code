@@ -105,4 +105,47 @@ int main() {
 ```
 
 
+# reverse a string (both chars and whole string)
+
+# Chars
+
+```c
+void reverseString(char* s, int sSize) {
+    int start = 0, end = sSize - 1;
+
+    while(start < end){
+        char temp = s[start];
+        s[start] = s[end];
+        s[end] = temp;
+        start++;
+        end--;
+    }
+    printf("%s", s);
+}
+```
+
+# String 
+
+```c
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+
+void reverseString(char* str, int len){
+    char rev[len+1];
+    int j = 0;
+    for(int i=len-1; i>=0; i--){
+        rev[j++] = str[i];
+    }
+    printf("%s", rev);
+}
+
+int main() {
+    char str[] = {'h', 'e', 'l', 'l', 'o'};
+    int N = strlen(str);
+    reverseString(str, N);
+    return 0;
+}
+```
+
 
