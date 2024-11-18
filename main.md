@@ -240,19 +240,9 @@ int main() {
 # Unique occurrences or not
 
 ```
-
-Code
-Testcase
-Test Result
-Test Result
 1207. Unique Number of Occurrences
-Easy
-Topics
-Companies
-Hint
 Given an array of integers arr, return true if the number of occurrences of each value in the array is unique or false otherwise.
 
- 
 
 Example 1:
 
@@ -306,7 +296,35 @@ int main() {
 
 ```
 
-# first unique occurring character :
+# first unique character in a string 
+
+```
+Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.
+
+ 
+
+Example 1:
+
+Input: s = "leetcode"
+
+Output: 0
+
+Explanation:
+
+The character 'l' at index 0 is the first character that does not occur at any other index.
+
+Example 2:
+
+Input: s = "loveleetcode"
+
+Output: 2
+
+Example 3:
+
+Input: s = "aabb"
+
+Output: -1
+```
 
 ```c
 // Online C compiler to run C program online
