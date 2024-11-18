@@ -154,3 +154,31 @@ int main() {
     return 0;
 }
 ```
+# Remove duplicates from the sorted array
+
+```c
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int arr[100];
+    int N, j = 0;
+    scanf("%d", &N);
+    
+    for(int i=0; i<N; i++){
+        scanf("%d", &arr[i]);
+    }
+    
+    for(int i=1; i<N; i++){
+        if(arr[j] != arr[i]){
+            j++;
+            arr[j] = arr[i]; // move to the next unique element;
+        }
+    }
+    
+    for(int i=0; i<=j; i++){
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}
+```
