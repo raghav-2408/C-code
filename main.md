@@ -120,7 +120,7 @@ int main() {
 
 ```
 
-# Palindrone and its lenght, ASCII
+# Palindrone and its length, ASCII
 
 ```c
 // Online C compiler to run C program online
