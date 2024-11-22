@@ -82,3 +82,43 @@ int main() {
     return 0;
 }
 ```
+
+
+# String permutations
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+// Function to swap two characters in a string
+void swap(char* x, char* y) {
+    char temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+// Function to print all permutations of a string
+void permute(char* str, int left, int right) {
+    // If left index is equal to right index, print the current permutation
+    if (left == right) {
+        printf("%s\n", str);
+    } else {
+        // Generate permutations by swapping characters
+        for (int i = left; i <= right; i++) {
+            swap((str + left), (str + i));   // Swap character at left with i
+            permute(str, left + 1, right);   // Recurse for the next position
+            swap((str + left), (str + i));   // Backtrack: restore the original string
+        }
+    }
+}
+
+int main() {
+    char str[] = "abc";  // Input string
+    int n = strlen(str);  // Get length of the string
+
+    printf("All permutations of the string \"%s\" are:\n", str);
+    permute(str, 0, n - 1);  // Call the permute function to generate all permutations
+
+    return 0;
+}
+```
