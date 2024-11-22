@@ -171,3 +171,51 @@ int main() {
     return 0;
 }
 ```
+
+
+# Occurrences of a elements
+
+```c
+*
+#include <stdio.h>
+
+int main()
+{
+    int size;
+    scanf("%d", &size);
+
+    int arr[size];
+
+    int occ[size];
+
+    int visited = -1;
+
+    for (int i = 0; i < size; i++)
+    {
+        scanf("%d", &arr[i]);
+        occ[i] = 1;
+    }
+
+    for (int i = 0; i < size; i++)
+    {
+        if (occ[i] == visited)
+        {
+            continue;
+        }
+        for (int j = i + 1; j < size; j++)
+        {
+            if (arr[i] == arr[j]){
+                
+            occ[i]++;
+            occ[j] = visited;
+            }
+        }
+    }
+
+    for (int i=0; i<size; i++){
+        if (occ[i] != visited){
+            printf("%d ", occ[i]);
+        }
+    }
+}
+```
