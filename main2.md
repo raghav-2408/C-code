@@ -122,3 +122,52 @@ int main() {
     return 0;
 }
 ```
+
+
+# Compress a string
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+void compressString(char *str) {
+    int len = strlen(str);
+    
+    // If the string is empty or has only one character, no compression is needed
+    if (len == 0 || len == 1) {
+        printf("%s\n", str);
+        return;
+    }
+
+    int count = 1;
+    char compressedStr[2 * len + 1];  // Maximum possible compressed size
+
+    int j = 0; // To index the compressed string
+
+    for (int i = 1; i <= len; i++) {
+        // If current character is the same as the previous one, increase the count
+        if (str[i] == str[i - 1]) {
+            count++;
+        } else {
+            // Otherwise, add the character and its count to the compressed string
+            compressedStr[j++] = str[i - 1];
+            if (count > 1) {
+                j += sprintf(compressedStr + j, "%d", count); // Append the count
+            }
+            count = 1;  // Reset the count
+        }
+    }
+    
+    compressedStr[j] = '\0';  // Null-terminate the compressed string
+    printf("Compressed String: %s\n", compressedStr);
+}
+
+int main() {
+    char str[] = "aaabbccccdaaa";
+    
+    printf("Original String: %s\n", str);
+    compressString(str);
+
+    return 0;
+}
+```
